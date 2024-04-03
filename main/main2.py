@@ -7,14 +7,14 @@ class MessageConsumer:
     def __init__(self, broker, topic):
         self.broker = broker
         self.consumer = KafkaConsumer(
-            topic,  # Topic to consume
+            topic,  
             bootstrap_servers=self.broker,
             value_deserializer=lambda x: x.decode(
                 "utf-8"
-            ),  # Decode message value as utf-8
-            group_id="my-group",  # Consumer group ID
-            auto_offset_reset="earliest",  # Start consuming from earliest available message
-            enable_auto_commit=True,  # Commit offsets automatically
+            ),  # utf-8로 디코딩
+            group_id="my-group",  # 컨슈머 그룹 아이디
+            auto_offset_reset="earliest",  
+            enable_auto_commit=True,  
         )
 
     def receive_message(self):

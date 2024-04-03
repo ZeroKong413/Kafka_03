@@ -4,8 +4,8 @@ import json
 
 class MessageProducer:
     def __init__(self, broker, topic):
-        self.broker = broker
-        self.topic = topic
+        self.broker = broker # 브로커
+        self.topic = topic # 토픽
         self.producer = KafkaProducer(
             bootstrap_servers=self.broker,
             value_serializer=lambda x: json.dumps(x).encode("utf-8"),
